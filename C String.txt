@@ -1,0 +1,425 @@
+Alphabetic ordered string
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+char a[100];
+printf("Enter the String: ");
+gets(a);
+int n=strlen(a);
+for(int i=0;i<n;i++){
+    for(int j=i+1;j<n;j++){
+        if(a[i]>a[j]){
+            char t=a[i];
+            a[i]=a[j];
+            a[j]=t;
+        }
+    }
+}
+printf("%s",a);
+}
+
+
+Extract Numbers from string
+
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char a[100];
+    printf("Enter the String: ");
+    scanf("%s",a);
+    int b[strlen(a)],k=0,c=0;
+    a[strlen(a)]='\0';
+    for (int i=0;i<strlen(a);i++){
+        if('0'<=a[i]&&a[i]<='9'){
+            printf("%d ",a[i]-48);
+        }
+        }
+}
+
+
+Palindrome strings
+
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+char a[100];
+printf("Enter the Word: ");
+scanf("%s",a);
+int c=strlen(a)-1,d=0;
+for (int i=0;i<strlen(a)/2;i++){
+    if(a[c]!=a[i]){
+        d++;
+        break;}
+        c--;
+}
+if(d==0)
+    printf("1");
+else
+    printf("0");
+}
+
+
+Reverse a strring
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+    printf("Enter the string: ");
+    char a[100];
+    gets(a);
+    a[strlen(a)]='\0';
+char b[strlen(a)];
+int c=strlen(a)-1;
+for (int i=0;i<strlen(a);i++){
+        b[c]=a[i];
+        c--;
+}
+b[strlen(a)]='\0';
+printf("%s",b);
+}
+
+
+Vowels and consonants in string
+
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+char str[25];
+printf("Enter the Sentence: ");
+scanf("%[^\n]",str);
+str[strlen(str)]='\0';
+int i=0,v=0,c=0;
+while (str[i]!='\0' || str[i]==' '){
+        if(str[i]==' ')
+            i++;
+    if (str[i]=='a' || str[i]=='e' || str[i]=='i' || str[i]=='o' || str[i]=='u')
+    v++;
+    else
+     c++;
+     i++;
+}
+printf("\n %d is the count of Vowels in the String and %d is the count of Consonants",v,c);
+}
+
+
+Word Puzzle
+
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char puz[5][5]={'B','O','O','K','D','I','W','H','T','I','T','L','O','H','M','E','N','D','I','E','S','C','A','R','E'};
+    for (int i=0;i<5;i++){
+        for (int j=0;j<5;j++){
+            printf("%c  ",puz[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    char w[7];
+    ss:
+    printf("\n Enter a word from the puzzle or Enter 'EXIT' to quit: ");
+    scanf("%s",w);
+    w[strlen(w)]='\0';
+    if (strcmp(w,"BOOK")==0){
+        printf("Good One...\n");
+        goto ss;
+    }
+    if (strcmp(w,"DIME")==0){
+        printf("Excellent...\n");
+        goto ss;
+    }
+    if (strcmp(w,"BITES")==0){
+        printf("Great...\n");
+        goto ss;
+    }
+    if (strcmp(w,"SCARE")==0){
+        printf("Woow...\n");
+        goto ss;
+    }
+    if (strcmp(w,"OHM")==0){
+        printf("Nice...\n");
+        goto ss;
+    }
+    if (strcmp(w,"END")==0){
+        printf("Good...\n");
+        goto ss;
+    }
+    if (strcmp(w,"DIE")==0){
+        printf("Fine try...\n");
+        goto ss;
+    }
+    if (strcmp(w,"OWL")==0){
+        printf("Super...\n");
+        goto ss;
+    }
+    if (strcmp(w,"EXIT")==0){
+        printf("Bye Bye...\n");
+    }
+    else {
+        printf("Invalid entry... Check and try again...\n");
+        goto ss;
+    }
+}
+
+
+
+anagram compare
+
+
+#include<stdio.h>
+#include<string.h>
+char str[25],astr[25];
+void anagrm();
+int main(){
+printf("Enter the String: ");
+scanf("%s",str);
+printf("Enter the String: ");
+scanf("%s",astr);
+str[strlen(str)]='\0';
+astr[strlen(astr)]='\0';
+if(strlen(str)==strlen(astr))
+    anagrm();
+else
+    printf("Enter a valid input");
+}
+void anagrm(){
+    int c=strlen(str),same=0;
+    for (int i=0;i<strlen(str);i++){
+        for (int k=0;k<strlen(str);k++){
+            if(astr[k]!= '$'){
+                if (str[i]==astr[k]){
+                    astr[k]='$';
+                    str[i]='@';
+                    same++;
+                }
+            }
+        }
+    }
+    if(same!=c)
+        printf("The 2 strings are not Anagram of each other");
+    if(same==c)
+        printf("The entered strings are anagram of each other.");
+}
+
+
+anagram compare
+
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+char m[30];
+printf("Enter a Sentence: ");
+scanf("%[^\n]",m);
+if(m[0]>=97 || m[0]<=122){
+            m[0]=m[0]-32;
+        }
+for (int i=0;i<strlen(m);i++){
+    if (m[i]==' '){
+        i++;
+        if(m[i]>=97 || m[i]<=122){
+            m[i]=m[i]-32;
+        }
+        }
+}
+printf("%s",m);
+}
+
+
+capitalize every word in a sentence
+
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+char m[30];
+printf("Enter a Sentence: ");
+scanf("%[^\n]",m);
+if(m[0]>=97 || m[0]<=122){
+            m[0]=m[0]-32;
+        }
+for (int i=0;i<strlen(m);i++){
+    if (m[i]==' '){
+        i++;
+        if(m[i]>=97 || m[i]<=122){
+            m[i]=m[i]-32;
+        }
+        }
+}
+printf("%s",m);
+}
+
+
+concatenate 2 strings
+
+
+#include<stdio.h>
+#include<string.h>
+char s1[10],s2[25];
+void conct();
+int main(){
+printf("Enter the First string: ");
+gets(s1);
+printf("Enter the Second string: ");
+gets(s2);
+printf("\nThe concatenated string is: ");
+conct();
+}
+void conct(){
+    int c=sizeof(s1)-strlen(s1)-1,d=strlen(s1);
+for (int i=0;i<c;i++){
+    s1[d+i]=s2[i];
+}
+printf("%s",s1);
+
+
+copy string with strcpy
+
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+char str[25];
+printf("Enter the String: ");
+scanf("%[^\n]",str);
+str[strlen(str)]='\0';
+char copy[strlen(str)];
+for (int i=0;i<strlen(str);i++){
+    copy[i]=str[i];
+}
+printf("\n \"%s\" is the copy of the string",copy);
+}
+}
+
+
+
+distinct for real
+
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+    int n=0,x=0;
+char a[]="abccdxxxzyz",b[100];
+for (int i=0;i<strlen(a);i++){
+        int c=0;
+    for (int j=0;j<x;j++){
+        if(a[i]==b[j] && i!=j)
+            c++;
+    }
+    if(c==0)
+    b[x++]=a[i];
+    }
+printf("%s",b);
+}
+
+
+frequecy of letters repeating
+
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+char s[30];
+printf("Enter the String: ");
+scanf("%[^\n]",s);
+s[strlen(s)]='\0';
+for (int i=0;i<strlen(s);i++){
+    int c=1;
+    for(int j=i+1;j<strlen(s);j++){
+        if(s[i]!='$'){
+            if(s[i]==s[j]){
+                c++;
+                s[j]='$';
+                }
+            }
+            }
+    if(s[i]!='$'){
+            printf("%c prints %d times\n",s[i],c);
+        }
+    }
+}
+
+
+
+reverse a string by word
+
+
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+char a[30];
+printf("Enter the string: ");
+gets(a);
+for(int i=strlen(a);i>=0;i--){
+    if(a[i--]=='\0'){
+            int j=0;
+           char b[strlen(a)];
+        while(a[i]!=' '){
+            b[j]=a[i];
+            if(i<0)
+                break;
+            i--;
+            j++;
+        }
+        for(int k=strlen(b);k>=0;k--){
+            printf("%c",b[k]);
+        }
+        printf(" ");
+        for(int k=strlen(b);k>=0;k--){
+            b[k]='\0';
+        }
+    }
+    a[i++]='\0';
+}
+}
+
+
+sub string in a stringT
+
+
+#include<stdio.h>
+#include<string.h>
+char ms[20];
+void subS();
+int main(){
+printf("Enter the Sentence: ");
+gets(ms);
+ms[strlen(ms)]='\0';
+subS();
+}
+void subS(){
+    int c=0;
+printf("Enter the string: ");
+char s[10];
+gets(s);
+s[strlen(s)]='\0';
+for (int i=0;i<strlen(s);i++){
+    int j=0;
+    c=0;
+    while (s[i]!=ms[j])
+        j++;
+    while(s[i]==ms[j]){
+        i++;
+        j++;
+        c++;
+    }
+        if (c==strlen(s)){
+            printf("The Sub string is present");
+            c=100;
+            break;
+        }
+        else {
+            i=i-c;
+            c=0;
+        }
+}
+if (c!=100)
+    printf("Substring not present");
+}
